@@ -1,4 +1,4 @@
-/* GLOW ANIMATION */
+/* GLOW FLOAT */
 const glow = document.querySelector(".bg-glow");
 
 let x = 0;
@@ -11,6 +11,26 @@ setInterval(() => {
     `translateY(${Math.sin(x) * 40}px)`;
 
 }, 30);
+
+/* CUSTOM CURSOR */
+const cursor = document.querySelector(".cursor");
+
+window.addEventListener("mousemove", (e) => {
+
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+
+});
+
+/* LIGHT FOLLOW */
+const light = document.querySelector(".light");
+
+window.addEventListener("mousemove", (e) => {
+
+  light.style.left = e.clientX + "px";
+  light.style.top = e.clientY + "px";
+
+});
 
 /* SCROLL REVEAL */
 const reveals = document.querySelectorAll(".reveal");
@@ -29,15 +49,16 @@ window.addEventListener("scroll", () => {
 
 });
 
-/* CUSTOM CURSOR */
-const cursor = document.querySelector(".cursor");
+/* CLOCK */
+const clock = document.getElementById("clock");
 
-document.addEventListener("mousemove", (e) => {
+setInterval(() => {
 
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
+  const now = new Date();
 
-});
+  clock.innerHTML = now.toLocaleTimeString();
+
+}, 1000);
 
 /* BUTTON SCROLL */
 const button = document.querySelector(".cta");
